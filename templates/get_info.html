@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Info</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <style>
+        /*
+        * ==========================================
+        * CUSTOM UTIL CLASSES
+        * ==========================================
+        */
+
+        /* DEMO GENERAL ============================== */
+        .hover {
+          overflow: hidden;
+          position: relative;
+          padding-bottom: 60%;
+        }
+
+        .hover-overlay {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 90;
+          transition: all 0.4s;
+        }
+
+        .hover img {
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          transition: all 0.3s;
+        }
+
+        .hover-content {
+          position: relative;
+          z-index: 99;
+        }
+
+        /* DEMO 1 ============================== */
+        .hover-1 img {
+          width: 105%;
+          position: absolute;
+          top: 0;
+          left: -5%;
+          transition: all 0.3s;
+        }
+
+        .hover-1-content {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: 99;
+          transition: all 0.4s;
+        }
+
+        .hover-1 .hover-overlay {
+          background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hover-1-description {
+          transform: translateY(0.5rem);
+          transition: all 0.4s;
+          opacity: 0;
+        }
+
+        .hover-1:hover .hover-1-content {
+          bottom: 2rem;
+        }
+
+        .hover-1:hover .hover-1-description {
+          opacity: 1;
+          transform: none;
+        }
+
+        .hover-1:hover img {
+          left: 0;
+        }
+
+        .hover-1:hover .hover-overlay {
+          opacity: 0;
+        }
+
+        /*
+        * ==========================================
+        * FOR DEMO PURPOSES
+        * ==========================================
+        */
+        body {
+          min-height: 100vh;
+          background-color: #fafafa;
+        }
+
+        p, h1, h3, #center {
+            margin: 40px;
+            text-align: center;
+        }
+
+        .log {
+            border:1px solid #999999;
+            color:#6f6f6f;
+            display:block;
+            float:left;
+            width:100%;
+            display: block;
+            position: relative;
+            padding: 20px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-light static-top" style="background-color: #faf7ef;">
+    <div class="container">
+      <a class="navbar-brand" href="/home">Homepage</a>
+      <a class="btn btn-dark" href="/to_visit">To Visit</a>
+    </div>
+  </nav>
+
+
+    <hr style="border: 30px solid #292929; margin:0px" />
+
+    <!-- DEMO 1 -->
+  <div class="" style="margin: 0">
+    <div class="row">
+      <!-- DEMO 1 Item-->
+      <div class="col-lg-6 mb-3 mb-lg-0" style="margin-left: auto; margin-right: auto">
+        <div class="hover hover-1 text-white"><img src={{image_url}} alt="">
+          <div class="hover-overlay"></div>
+          <div class="hover-1-content px-5 py-4">
+            <h3 class="hover-1-title text-uppercase font-weight-bold mb-0"> <span class="font-weight-light">{{place}} </span></h3>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+      <hr style="border: 30px solid #292929; margin:0px"/>
+
+
+    <div style="margin: 80px">
+        <h1>{{place}}</h1>
+
+        <!--<p class="text-center">
+            <img src={{image_url}} alt={{place}} style="height: 600px">
+        </p>-->
+        {% for section in sections %}
+            <a href="#{{section.name}}" aria-expanded="true" role="button" aria-controls="{{section.id}}" class="btn btn-light" data-toggle="collapse">{{ section.name }}</a>
+            <div id="{{section.name}}" aria-expanded="true" class="in collapse log" style="line-height: 2.2em;">{{section.text}}</div>
+        {% endfor %}
+
+        <form action="/save_page" method="post">
+            <input type="hidden" name="place" value="{{place}}">
+            <h3>Choose a category:</h3>
+            <div id="center">
+                {% for category in categories %}
+                    {% if category != "Other" %}
+                        {{category}}<input id="center" type="checkbox" name="category" value="{{category}}">
+                    {% else %}
+                        {{category}}<input id="center" type="checkbox" name="category" checked value="{{category}}">
+                    {% endif %}
+                {% endfor %}
+                | New category: <input type="text" name="category">
+                <p>
+                    <input type="submit" class="btn btn-dark" name="add_place" value="Add to the To-Visit list"><br>
+                </p>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+    <title>Homepage</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="../startbootstrap-landing-page-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="../startbootstrap-landing-page-gh-pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="../startbootstrap-landing-page-gh-pages/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="../startbootstrap-landing-page-gh-pages/css/landing-page.min.css" rel="stylesheet">
+
+    <style>
+        img{
+            width: 100%;
+        }
+        body {
+            background-image: url('https://dff.dk/cases/tyske-handelsskibe-havde-dobbeltrolle-og-dominerede-som-piratskibe-i-dansk-farvand/@@images/a1aede04-82ae-4e2b-8e8e-2743df1c6aa9.jpeg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-light static-top" style="background-color: #faf7ef;">
+    <div class="container">
+      <a class="navbar-brand" href="/home">Homepage</a>
+      <a class="btn btn-dark" href="/to_visit">To Visit</a>
+    </div>
+  </nav>
+  <!--
+  <img src="https://dff.dk/cases/tyske-handelsskibe-havde-dobbeltrolle-og-dominerede-som-piratskibe-i-dansk-farvand/@@images/a1aede04-82ae-4e2b-8e8e-2743df1c6aa9.jpeg" alt="background">
+    -->
+
+  <!-- Masthead -->
+  <header class="masthead text-white text-center" style="position: relative; top: 150px">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5">Manage your travel plans by keeping track of the sights and locations on your To-Visit List.</h1>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+
+          <form action = "/get_info" method = "get">
+            <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <input type="text" name="place" class="form-control form-control-lg" placeholder="Enter a location">
+              </div>
+              <div class="col-12 col-md-3">
+                <button type="submit" class="btn btn-secondary">Search</button>
+              </div>
+            </div>
+          </form>
+
+            <!--<form action = "/get_info" method = "get">
+                <p>Enter Place:</p>
+            <p><input type = "text" name = "place" /></p>
+            <p><input type = "submit" value = "submit" /></p>
+            </form>-->
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+</body>
+
+</html>
