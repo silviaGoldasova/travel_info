@@ -73,6 +73,22 @@ def to_visit():
     places = service.service.get_all_places()
     return render_template("to_visit.html", categories_list=categories, places_list=places)
 
+
+@app.route("/to_pdf")
+def to_pdf():
+    import convertapi
+    convertapi.api_secret = 'V9yuSyc4tdJTwg1t'
+    convertapi.convert('pdf', {
+        'File': 'file.txt'
+    }, from_format='txt').save_files('new_file.pdf')
+    return render_template("home.html")
+"""
+https://github.com/ConvertAPI/convertapi-python
+https://www.convertapi.com/a#
+https://www.convertapi.com/txt-to-pdf
+"""
+
+
 if __name__ == '__main__':
     app.debug = True  # Turn on auto reloader and debugger
     app.config['SQLALCHEMY_ECHO'] = True  # Show SQL commands created
